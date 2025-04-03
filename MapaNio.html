@@ -1,0 +1,348 @@
+Animação Estados = 
+
+VAR vForm_cond_mapa = 
+    SWITCH(
+        SELECTEDVALUE(dClientes[Regiao]),
+        "Norte", "#92D050",
+        "Nordeste", "#0070C0",
+        "Centro Oeste", "#4AC4FB",
+        "Sudeste", "#002060",
+        "Sul", "#FDB934"
+    )
+
+VAR vUF_selecionada = 
+    SELECTEDVALUE(dClientes[UF])
+
+VAR vEstado = 
+    SELECTEDVALUE(dClientes[Estado]) 
+
+VAR vFaturamento = 
+     [Total Venda]  
+
+VAR vFaturamento_formatado = 
+    SWITCH(
+        TRUE(),
+        vFaturamento >= 1000000000, FORMAT( vFaturamento, "#,,,.00 Bi"),
+        vFaturamento >= 1000000, FORMAT( vFaturamento, "#,,.00 Mi"),
+        vFaturamento >= 1000, FORMAT( vFaturamento, "#,.00 k"),
+        vFaturamento + 0
+    )
+
+
+VAR vYoY = 
+    [Total Venda YoY%] + 0
+
+VAR vYoY_formatado = -- ⮝ ⮞ ⮟
+    SWITCH(
+        TRUE(),
+        vYoY = 0, FORMAT( vYoY, "⮞ 0.00%"),
+        vYoY > 0, FORMAT( vYoY, "⮝ 0.00%"),
+        FORMAT( vYoY, "⮟ 0.00%")
+    )
+
+VAR vYoY_cor = -- ⮝ ⮞ ⮟
+    SWITCH(
+        TRUE(),
+        vYoY = 0, vForm_cond_mapa,
+        vYoY > 0, "#6CCF63",
+        "#E47777"
+    )
+
+
+VAR vMoM = 
+    [Total Venda MoM%] + 0
+
+VAR vMoM_formatado = -- ⮝ ⮞ ⮟
+    SWITCH(
+        TRUE(),
+        vMoM = 0, FORMAT( vMoM, "⮞ 0.00%"),
+        vMoM > 0, FORMAT( vMoM, "⮝ 0.00%"),
+        FORMAT( vMoM, "⮟ 0.00%")
+    )
+
+VAR vMoM_cor = -- ⮝ ⮞ ⮟
+    SWITCH(
+        TRUE(),
+        vMoM = 0, vForm_cond_mapa,
+        vMoM > 0, "#6CCF63",
+        "#E47777"
+    )
+
+
+VAR vMovimentacao = 
+    SWITCH( 
+        vUF_selecionada,        
+        --SUL
+        "RS", "transform: translate(430px,-380px)  scale(3)  rotateY(360deg);" ,
+        "SC", "transform: translate(450px,-350px)  scale(3)  rotateY(360deg);" ,
+        "PR", "transform: translate(450px,-350px)  scale(3)  rotateY(360deg);" ,
+
+        --SUDESTE 
+        "SP", "transform: translate(450px,-300px)  scale(3) rotateY(360deg);" ,
+        "RJ", "transform: translate(400px,-300px)  scale(4) rotateY(360deg);" ,
+        "ES", "transform: translate(350px,-250px)  scale(3) rotateY(360deg);" ,
+        "MG", "transform: translate(400px,-250px)  scale(2) rotateY(360deg);" ,
+
+        --NORDESTE
+        "BA", "transform: translate(380px,-200px)  scale(2) rotateY(360deg);" ,
+        "SE", "transform: translate(350px,-180px)  scale(8) rotateY(360deg);" , 
+        "AL", "transform: translate(320px,-150px)  scale(7) rotateY(360deg);" ,
+        "PE", "transform: translate(320px,-150px)  scale(3) rotateY(360deg);" ,
+        "PB", "transform: translate(320px,-130px)  scale(5) rotateY(360deg);" ,
+        "RN", "transform: translate(250px,-120px)  scale(5) rotateY(360deg);" , 
+        "CE", "transform: translate(380px,-100px)  scale(4) rotateY(360deg);" ,
+        "PI", "transform: translate(400px,-120px)  scale(3) rotateY(360deg);" ,
+        "MA", "transform: translate(430px,-110px)  scale(2) rotateY(360deg);" , 
+
+        --CENTRO OESTE 
+        "GO", "transform: translate(450px,-220px)  scale(3) rotateY(360deg);" ,
+        "MS", "transform: translate(420px,-280px)  scale(3) rotateY(360deg);" ,
+        "MT", "transform: translate(500px,-200px)  scale(2) rotateY(360deg);" ,
+        "DF", "transform: translate(420px,-250px)  scale(10) rotateY(360deg);" , 
+
+        --NORTE
+        "TO", "transform: translate(450px,-180px)  scale(2) rotateY(360deg);" ,
+        "PA", "transform: translate(500px,-100px)  scale(1.5) rotateY(360deg);" ,
+        "AP", "transform: translate(450px,-50px)  scale(3) rotateY(360deg);" ,
+        "RO", "transform: translate(600px,-190px)  scale(3) rotateY(360deg);" ,
+        "RR", "transform: translate(600px,-50PX)  scale(3) rotateY(360deg);" ,
+        "AM", "transform: translate(600px,-100PX)  scale(1.5) rotateY(360deg);" ,
+        "AC", "transform: translate(750px,-150PX)  scale(4) rotateY(360deg);" 
+    )
+
+
+VAR vEstado_filtrado = -- Para o quadro de detalhes aparecer, deverá ter o filtro na coluna ESTSDO SEM ACENTO, utilizado no gráfico de forma
+    IF(
+        ISFILTERED(dClientes[Estado sem acento]),
+        1,
+        0
+    )
+
+
+
+RETURN  
+
+"
+<style>
+
+
+:root{
+    --cor_regiao_selecionada: " & vForm_cond_mapa & ";
+}
+
+
+#quadro_detalhes
+{
+    animation: anima_quadro 1s linear;
+    
+}
+
+
+#" & vUF_selecionada & "
+{
+    " & vMovimentacao & "
+    transform-origin: center;
+    transform-box: fill-box;
+
+    animation: anima_estado 1s linear;
+    stroke-width: 0.3;
+    opacity: 1;
+}
+
+
+/* ********************** Animação *********************** */
+
+@keyframes anima_quadro
+{
+    from{
+        transform: translateX(50%);
+    }
+}
+
+@keyframes anima_estado
+{
+    from{
+        transform: translate(0,0)  scale(1)
+    }
+}
+
+
+
+</style>
+
+
+<body>
+
+
+    <svg viewBox='0 0 1280 720' fill='none' xmlns='http://www.w3.org/2000/svg'>
+
+
+        <rect width='1280' height='720' fill='#f1f1f100' />
+
+        
+        <g id='quadro_detalhes'>
+            <rect id='quadro_informativo' x='727.5' y='197.5' width='485' height='466' rx='17.5' fill='#0000' fill-opacity='1' stroke='var(--cor_regiao_selecionada)' stroke-width='5' />
+
+            <text id='nome_regiao' fill='var(--cor_regiao_selecionada)' font-family='Calibri' font-size='38' font-weight='bold' text-anchor='end'>
+                <tspan x='1210' y='164.5'>
+                    " & vEstado & "
+                </tspan>
+            </text>
+
+            <g id='title'>
+                <text id='populacao_title' fill='#727272' font-family='Inter' font-size='25' font-weight='400'>
+                    <tspan x='755' y='344.091'>Faturamento</tspan>
+                </text>
+                <text id='area_title' fill='#727272' font-family='Inter' font-size='25' font-weight='400'>
+                    <tspan x='755' y='465.091'>YoY % </tspan>
+                </text>
+                <text id='densidade_title' fill='#727272' font-family='Inter' font-size='25' font-weight='400'>
+                    <tspan x='755' y='572.091'>MoM %</tspan>
+                </text>
+            </g>
+
+            <g id='valores'>
+                <text id='area_descricao' fill='" & vYoY_cor & "' font-family='Inter' font-size='32.8' font-weight='800'>
+                    <tspan x='755' y='508.927'>
+                        " & vYoY_formatado & "
+                    </tspan>
+                </text>
+                <text id='populacao_descricao' fill='var(--cor_regiao_selecionada)' font-family='Inter' font-size='32.8' font-weight='800'>
+                    <tspan x='755' y='387.927'>
+                        R$ " & vFaturamento_formatado  & "
+                    </tspan>
+                </text>
+                <text id='densidade_descricao' fill='" & vMoM_cor & "' font-family='Inter' font-size='32.8' font-weight='800'>
+                    <tspan x='755' y='615.927'>
+                        " & vMoM_formatado & "
+                    </tspan>
+                </text>
+            </g>
+        </g>
+
+        <g id='mapa_brasil'>
+            <g id='su'>
+                <path opacity='1' id='RS' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M335.412 598.999L343.093 595.317L349.051 580.439L356.732 574.348L364.28 557.347L370.635 546.153L368.119 542.469V536.376H364.28L360.44 532.551L352.892 528.867L349.051 525.185L339.253 521.5H327.866L317.669 528.867L296.085 559.753V563.438H303.633L317.669 570.947H321.509L335.412 584.124L339.253 580.439V587.948L335.412 591.632V598.999Z'
+                    fill='#FDB934' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='SC' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M369.393 546.124L376.956 535.973L380.803 520.892V511.032H376.956L369.393 507.263H363.023L355.327 511.032L351.48 514.803L337.814 511.032H326.402V520.892H337.814L347.765 524.663L351.48 528.433L359.176 532.202L363.023 535.973H366.872V542.353L369.393 546.124Z'
+                    fill='#FDB934' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='PR' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M326.245 511.165H337.78L351.595 514.886L355.486 511.165L363.132 507.445H369.568L377.214 511.165H381.106V503.724L388.75 496.141H384.86L377.214 489.989H373.325L367.021 478.829L363.132 475.11L359.24 472.533H347.705L337.78 468.813H330.134L326.245 472.533L319.939 482.548V489.989V496.141L316.05 500.005V503.724L323.696 507.445L326.245 511.165Z'
+                    fill='#FDB934' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+            </g>
+            <g id='sd'>
+                <path opacity='1' id='SP' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M420.38 475.313V472.727L424.243 468.989H416.651H410.257L402.532 465.251L399.067 457.921V454.185L395.206 451.741V444.123L391.342 440.387L384.948 436.649L373.492 440.387L367.1 436.649H355.644L348.05 448.003L341.924 457.921L334.331 465.251L330.468 468.989H338.06L348.05 472.727H359.506L363.369 475.313L367.1 479.051L373.492 490.261H377.356L384.948 496.585H388.811L391.342 494.141L402.532 486.525L412.788 479.051L420.38 475.313Z'
+                    fill='#002060' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='RJ' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M419.953 475.69V473.172L423.848 469.173H416.058L423.848 465.324L431.638 461.474H438.086L445.875 457.919L449.77 451.405L453.53 447.554L456.217 454.07H467.498L463.604 457.919V461.474L456.217 465.324L453.53 473.172H434.19L419.953 475.69Z'
+                    fill='#002060' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='ES' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M466.913 454.616L474.419 440.167L476.877 425.865L480.63 417.969L476.877 414.097H470.666L466.913 417.969V421.992L463.161 429.739V432.42L456.044 440.167L453.585 448.063L456.044 454.616H466.913Z'
+                    fill='#002060' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='MG' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M476.782 411.48L474.262 409.027L476.782 401.671L480.625 397.92V394.17L470.417 390.419H466.705L459.017 384.071H453.05L445.361 380.32H437.804L431.442 376.569H420.039L416.194 380.32L409.831 384.071L402.274 380.32L398.827 387.821L394.983 390.419V397.92L391.138 401.671L394.983 409.027V411.48L388.619 418.981H373.373L363.165 422.732L355.608 430.378V436.582H367.011L373.373 440.477L384.775 436.582L391.138 440.477L394.983 444.228V451.727L398.827 454.325V458.076L402.274 465.289L409.831 469.04H416.194L423.884 465.289L431.442 461.538H437.804L445.361 458.076L449.206 451.727L453.05 447.977L455.569 440.477L462.86 432.831V430.378L466.705 422.732V418.981L470.417 415.231H476.782V411.48Z'
+                    fill='#002060' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+            </g>
+            <g id='nd'>
+                <path opacity='1' id='BA' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M410.113 383.605L416.511 379.947L420.243 376.15H431.841L438.239 379.947H445.838L453.569 383.605H459.568L467.301 389.656H471.166L481.298 393.454V397.111L477.566 400.769L474.898 407.803L477.566 410.336V413.994L481.298 417.653L485.164 413.994L489.029 407.803V397.111L492.896 389.656V365.175L496.629 358.986V362.642H499.294L506.894 348.01L510.759 344.635L499.294 342.102V338.444L496.629 334.786V331.129H499.294L503.027 327.33V321.28L499.294 313.824H496.629V310.166L481.298 306.508L474.898 313.824H467.301V310.166L463.435 306.508L456.104 313.824L441.973 317.621L434.373 313.824L431.841 317.621V321.28L434.373 323.672V327.33L427.976 334.786H420.243L412.645 331.129H410.113L406.245 334.786L402.38 342.102L406.245 351.669V365.175L410.113 372.491V383.605Z'
+                    fill='#0070C0' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='SE' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M510.707 344.081L517.97 330.825L514.14 327.235L506.879 321.297H503.182V327.235L499.351 330.825H496.843V334.554L499.351 338.143V341.733L510.707 344.081Z'
+                    fill='#0070C0' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='AL' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M517.944 330.588L524.31 326.974L528.155 320.861L535.714 310.022H524.31L520.463 313.635H517.944L510.651 310.022H503.09L499.245 313.635L503.09 320.861H506.804L514.099 326.974L517.944 330.588Z'
+                    fill='#0070C0' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='PE' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M538.859 290.054H535.032L527.511 296.933H519.857H517.351L513.655 300.51H506.267L510.093 293.356H506.267L498.745 296.933L496.238 300.51L484.891 296.933H481.065L477.238 293.356H470.905L467.209 296.933V302.848L463.383 306.425L467.209 310.002V313.579H474.731L481.065 306.425L496.238 310.002V313.579H498.745L502.571 310.002H510.093L517.351 313.579H519.857L523.684 310.002H535.032L538.859 300.51V290.054Z'
+                    fill='#0070C0' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='PB' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M538.86 289.256L535.041 281.599H523.72L519.901 279.096H517.4V281.599V285.428H502.654L510.159 279.096L506.473 275.268L502.654 279.096L496.335 281.599H492.518L488.83 292.789L485.013 296.617L496.335 300.446L498.836 296.617L506.473 292.789H510.159L506.473 300.446H513.714L517.4 296.617H527.538L535.041 289.256H538.86Z'
+                    fill='#0070C0' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='RN' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M535.715 282.434L531.861 267.831L528.138 263.876H520.428L510.589 259.921H506.735L503.012 263.876L499.158 271.786L492.776 282.434H496.631L503.012 279.696L506.735 275.742L510.589 279.696L503.012 286.39H517.902V279.696H520.428L524.284 282.434H535.715Z'
+                    fill='#0070C0' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='CE' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M510.759 260.588L499.291 254.425H496.758L489.024 246.828L477.555 243.101H459.687V250.555V258.152L463.554 271.913V279.367L471.155 289.399V292.839H477.555L481.422 296.566H485.156L489.024 292.839L492.891 281.803L499.291 271.913L503.158 264.315L506.892 260.588H510.759Z'
+                    fill='#0070C0' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='PI' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M456.061 243.101L453.525 246.797H449.652L445.781 250.493L442.043 258.027V264.14L438.17 275.37V281.626L434.299 285.321L424.152 289.016L416.409 292.429L410.133 299.821L406.262 313.61L410.133 327.256V330.954H412.671L420.28 334.649H427.89L434.299 327.256V323.419L431.761 321.003V317.305L434.299 313.61L442.043 317.305L456.061 313.61L463.404 306.075L467.142 302.38V296.124L471.014 292.429V289.016L463.404 279.067V271.675L459.533 258.027V250.493V243.101H456.061Z'
+                    fill='#0070C0' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='MA' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M402.187 222.582V233.641L398.705 246.968L394.819 258.168L388.39 264.264L380.755 268.092L376.869 271.779H384.506L388.39 275.465V279.151L384.506 285.388L388.39 296.164L394.819 299.85L398.705 296.164L402.187 299.85V302.403L398.705 306.089L394.819 313.461L398.705 320.833L406.073 327.07H409.824L406.073 313.461L409.824 299.85L416.253 292.478L424.023 289.074L434.205 285.388L438.089 281.562V275.465L441.975 264.264V258.168L445.726 250.654L449.61 246.968H453.495L456.041 243.281H453.495L445.726 239.595L434.205 237.043L427.774 233.641L424.023 239.595V233.641L416.253 229.955L412.503 226.268L402.187 222.582Z'
+                    fill='#0070C0' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+            </g>
+            <g id='co'>
+                <path opacity='1' id='GO' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M351.62 365.679V373.219L347.884 380.619L341.745 384.318L337.876 390.579L330.271 397.977L326.401 408.792V415.053L334.14 418.752L347.884 429.851H355.489L363.227 422.451L373.369 418.752H388.712L395.117 411.211V408.792L391.381 401.678L395.117 397.977V390.579L398.986 388.017L402.456 380.619L410.194 384.318V373.219L406.325 365.679L391.381 363.259L384.976 365.679L381.107 369.52L373.369 365.679L369.633 363.259H363.227L355.489 365.679H351.62Z'
+                    fill='#4AC4FB' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='MS' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M326.383 410.307H323.847L319.978 407.809H316.107L312.238 410.307L304.631 414.272L294.354 410.307H287.015L283.145 414.272V425.726L287.015 429.545V436.006L283.145 443.642V465.232L287.015 469.05H301.961L304.631 472.869L308.367 483.149L312.238 486.968H319.978V483.149L326.383 472.869L330.254 469.05L341.73 457.742L347.736 447.608L355.476 436.006V429.545H347.736L333.99 418.089L326.383 414.272V410.307Z'
+                    fill='#4AC4FB' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='MT' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M355.476 323.969L290.779 321.431L283.472 317.763L280.948 314.097L277.096 306.766L269.524 296.894V303.098L265.672 310.432V317.763H236.31L233.787 323.969V342.44L251.589 344.838V359.362L244.017 372.897L247.87 383.897L244.017 387.562L247.87 393.768V401.1L265.672 404.484H273.244V408.15L277.096 414.354L283.472 418.022V414.354L287.326 410.688H294.632L304.862 414.354L312.434 410.688L316.286 408.15H320.139L323.991 410.688H326.516V408.15L330.369 397.434L337.941 390.1L341.793 383.897L347.771 380.231L351.624 372.897V365.425L355.476 355.554L351.624 344.838V334.966L355.476 323.969Z'
+                    fill='#4AC4FB' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='DF' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M379.973 391.961L390.21 391.914C390.527 392.097 390.12 392.461 390.436 392.644L391.743 392.691C392.044 392.842 391.728 393.589 391.654 393.787C391.578 393.985 391.931 394.227 391.789 394.471C391.647 394.715 391.436 394.806 391.382 395.201C391.331 395.597 391.15 396.063 391.203 396.39C391.255 396.717 391.022 396.634 391.112 396.937C391.203 397.24 392.51 398.344 392.15 398.569L381.236 398.342C379.206 398.266 379.86 398.481 379.657 398.216C379.453 397.952 379.716 397.127 379.701 396.708C379.686 396.29 378.875 395.552 379.882 395.613C379.89 394.915 379.13 394.761 379.296 394.334C379.439 393.515 380.108 394 380.108 393.604L379.973 391.961Z'
+                    fill='#4AC4FB' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+            </g>
+            <g id='nt'>
+                <path opacity='1' id='TO' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M377.015 272.126L380.91 275.826V279.525L369.358 289.485L366.805 296.598V306.558L362.91 314.101L355.253 323.917L351.358 335.158V345.118L355.253 355.931L351.358 365.891H355.253L362.91 363.329H369.358L373.253 365.891L380.91 369.59L384.807 365.891L391.255 363.329L406.299 365.891V352.232L402.537 342.556L406.299 335.158L410.194 331.459V327.616H406.299L398.91 321.499L395.15 314.101L398.91 306.558L402.537 302.859V300.441L398.91 296.598L395.15 300.441L388.702 296.598L384.807 285.786L388.702 279.525V275.826L384.807 272.126H377.015Z'
+                    fill='#92D050' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='PA' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M251.719 197.63L255.582 208.745V216.298L261.98 229.978L265.711 233.683H273.44L281.036 237.103V243.231L283.566 247.078L269.574 285.554V296.385L277.17 306.36L281.036 313.771L283.566 317.475L290.896 321.322L355.658 323.746L363.254 313.771L367.117 306.36V296.385L369.65 289.26L381.109 279.285V275.579L377.246 271.874L381.109 268.169L388.705 264.464L395.101 258.194L398.967 247.078L402.431 233.683V222.425L398.967 218.72L384.842 216.298L381.109 222.425L373.38 229.978L369.65 237.103L367.117 247.078V237.103L351.794 233.683L345.398 226.13H338.068L330.473 218.72L326.609 208.745L320.213 197.63L312.617 195.065H308.752L302.355 191.36V183.949H290.896L287.432 187.654H290.896L287.432 191.36H277.17L265.711 195.065L255.582 197.63H251.719Z'
+                    fill='#92D050' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='AP' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M345.562 226.51H338.24L330.516 219.105L326.788 209.136L320.397 197.886L312.807 195.466H308.945L302.555 191.621V184.216L312.807 187.918H324.259L334.378 180.513L341.967 170.83L345.562 167.127H348.093V177.095L351.953 187.918L355.681 195.466L359.543 197.886V201.589L355.681 205.434L348.093 212.839L345.562 222.807V226.51Z'
+                    fill='#92D050' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='RO' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M236.356 317.847H230.191L226.439 321.518H222.553V314.035L218.665 310.364H214.778L208.48 306.693L200.706 310.364V314.035L196.819 317.847L190.387 321.518V323.92L178.861 327.591L171.489 335.074L175.375 338.745L182.747 335.074H186.633L190.387 338.745V348.207L196.819 359.361L212.232 363.032L218.665 365.574L236.356 369.245L243.995 372.917L251.768 359.361V344.816L233.809 342.417V323.92L236.356 317.847Z'
+                    fill='#92D050' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='RR' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M255.283 216.304H243.801L239.928 218.842V222.506L236.191 226.171H233.654L230.049 222.506H226.312L222.439 229.836L214.828 226.171L212.159 222.506L214.828 218.842V208.974L212.159 201.644V195.442L208.421 191.777L200.677 188.112L196.939 180.641V174.862L190.53 171.197L193.067 167.532L208.421 171.197H212.159L214.828 174.862L218.568 167.532L233.654 160.202V154L239.928 156.396V163.867H243.801L247.672 171.197L243.801 180.641L247.672 195.442L251.41 197.839L255.283 208.974V216.304Z'
+                    fill='#92D050' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='AM' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M208.754 191.527L212.627 195.228V201.489L215.163 208.89V218.852L212.627 222.552L215.163 226.252L222.908 229.952L226.781 222.552H230.521L234.126 226.252H236.664L240.402 222.552V218.852L244.275 216.29H255.76L262.169 229.952L266.042 233.652H273.652L281.398 237.067V243.329L283.936 247.029L269.915 285.455V302.532L266.042 310.074V317.474H236.664H230.521L226.781 321.175H222.908V313.773L219.036 310.074H215.163L208.754 306.231L201.141 310.074V313.773L197.268 317.474L190.859 321.175V323.735L179.376 327.436L172.031 334.836L158.01 331.135L147.726 323.735L132.37 317.474L122.221 313.773H111.004L100.722 310.074L93.1094 306.231L96.9822 300.112L100.722 296.411V292.712L104.593 285.455L111.004 279.334L128.63 271.934H132.37L136.243 258.272L140.115 237.067L132.37 229.952L128.63 216.29L132.37 212.59H140.115V208.89L132.37 205.19V201.489L150.264 197.789H161.881L165.621 201.489L169.493 208.89L175.902 212.59L190.859 208.89L197.268 201.489L208.754 195.228V191.527Z'
+                    fill='#92D050' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+                <path opacity='1' id='AC' fill-rule='evenodd' clip-rule='evenodd'
+                    d='M92 305.585L99.6698 309.207L110.029 312.828H121.332L131.558 316.588L147.031 322.576L157.392 329.957L171.519 333.579L175.422 337.2L165.062 343.328L149.587 346.67H131.558L127.791 343.328V333.579L121.332 340.82H113.932L110.029 337.2H106.129L103.572 329.957L95.9024 322.576L92 316.588V305.585Z'
+                    fill='#92D050' stroke='white' stroke-width='1' stroke-miterlimit='10' stroke-linecap='round'
+                    stroke-linejoin='round' />
+            </g>
+        </g>
+
+
+    </svg>
+
+</body>
+"

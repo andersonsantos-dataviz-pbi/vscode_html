@@ -1,0 +1,82 @@
+<svg width='195' height='120' viewBox='0 0 195 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
+
+    <defs>
+        <style>
+            #Circ_Frente
+            {
+                stroke-dasharray: 259;
+                stroke-dashoffset: 259;
+                animation: animaCirc 1s linear forwards;
+                
+                /**** Arredondando bordas do circulo ****/
+                stroke-linecap: round;
+
+                /**** Alterando posição inicial do circulo ****/
+                transform: rotate(-90deg);
+                transform-origin: center center;
+                transform-box: fill-box;
+
+                /**** Definindo a cor do circulo ****/
+                stroke: #37714A;
+            }
+
+            #Rot_Perc
+            {
+                fill: #151716;
+            }
+
+            /* *********** Animation ********* */
+            @keyframes animaCirc
+            {
+                from{
+                    stroke-dashoffset: 259;
+                }
+
+                to{
+                    stroke-dashoffset: 129.5;
+                    /* Cálculo 300-(300*Perc)*/
+                }
+            }
+        </style>
+    </defs>
+
+    <g id='Gauge3'>
+        <g id='Circ_Fundo' filter='url(#filter0_ii_1016_44)'>
+            <circle cx='98' cy='66' r='42.5833' stroke='#5FBE7A' stroke-width='12.8333' />
+        </g>
+        <circle id='Circ_Frente' cx='98' cy='66.0002' r='42.5833' stroke='#01B051' stroke-width='8.16667' />
+        <text id='Rot_Perc' fill='black' font-family='Segoe UI'
+            font-size='18.6667' font-weight='600' text-anchor = 'midlle'>
+            <tspan x='76.0247' y='73.2292'>
+                100%
+            </tspan>
+        </text>
+        <text id='Rot_Cat' fill='black' font-family='Segoe UI'
+            font-size='12' font-weight='600' text-anchor = 'midlle'>
+            <tspan x='50.5215' y='12.4688'>
+                % Ct Atv vs. Desb
+            </tspan>
+        </text>
+    </g>
+    <defs>
+        <filter id='filter0_ii_1016_44' x='47.8333' y='15.8333' width='100.333' height='100.333'
+            filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
+                result='hardAlpha' />
+            <feOffset dx='1.16667' dy='1.16667' />
+            <feGaussianBlur stdDeviation='1.16667' />
+            <feComposite in2='hardAlpha' operator='arithmetic' k2='-1' k3='1' />
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0' />
+            <feBlend mode='normal' in2='shape' result='effect1_innerShadow_1016_44' />
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
+                result='hardAlpha' />
+            <feOffset dx='-1.16667' dy='-1.16667' />
+            <feGaussianBlur stdDeviation='1.16667' />
+            <feComposite in2='hardAlpha' operator='arithmetic' k2='-1' k3='1' />
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0' />
+            <feBlend mode='normal' in2='effect1_innerShadow_1016_44' result='effect2_innerShadow_1016_44' />
+        </filter>
+    </defs>
+</svg>

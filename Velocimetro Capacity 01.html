@@ -1,0 +1,63 @@
+<svg width='330' height='270' viewBox='0 0 330 270' fill='none' xmlns='http://www.w3.org/2000/svg'>
+<defs>
+    <style>
+        /* **** Ponteiro **** */
+        #Grupo_Giro
+        {
+            transform: rotate(0deg);
+            transform-origin: center center;
+            transform-box: fill-box;
+            /* **** Animação **** */
+            animation: animaPonteiro 1s linear forwards;
+        }
+        @keyframes animaPonteiro
+        {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(232eg);
+                /* Rotação máxima: 232deg */
+            }
+        }    
+    </style>
+</defs>
+    <g id='Velocimetro 1'>
+        <g id='Grupo_Giro'>
+            <ellipse id='Giro' cx='165.64' cy='96.1745' rx='91.6396' ry='91.1744' />
+            <g id='Ponteiro'>
+                <path id='Polygon 1' d='M99.2003 129.165L171.479 94.2961L174.866 101.316L99.2003 129.165Z'
+                    fill='#BCBCBC' />
+                <path id='Polygon 2' d='M99.2003 129.165L168.093 87.276L171.479 94.296L99.2003 129.165Z'
+                    fill='#D9D9D9' />
+                <circle id='Centro' cx='164.627' cy='97.9284' r='10.5' transform='rotate(-115.754 164.627 97.9284)'
+                    fill='#8E8E8E' />
+            </g>
+        </g>
+        <path id='Borda_Velocimetro4' fill-rule='evenodd' clip-rule='evenodd'
+            d='M249.642 130.415C245.636 130.824 241.735 131.582 237.968 132.658C243.763 121.144 246.741 108.41 246.633 95.499C246.515 81.3324 242.686 67.4411 235.525 55.1946L243.923 50.3367C251.934 64.0348 256.217 79.5729 256.349 95.4188C256.449 107.446 254.156 119.336 249.642 130.415Z'
+            fill='#FF2E3F' />
+        <path id='Borda_Velocimetro3' fill-rule='evenodd' clip-rule='evenodd'
+            d='M210.699 17.3218C224.473 25.2731 235.926 36.6557 243.93 50.3483L235.531 55.205C228.375 42.9636 218.135 32.7873 205.822 25.6787C193.508 18.57 179.545 14.7742 165.307 14.6651L165.382 5.00269C181.307 5.1247 196.926 9.37049 210.699 17.3218Z'
+            fill='#E1A900' />
+        <path id='Borda_Velocimetro2' fill-rule='evenodd' clip-rule='evenodd'
+            d='M164.819 5.00012C165.062 5.0005 165.304 5.00183 165.547 5.00413L165.455 14.6664C151.177 14.5315 137.112 18.1083 124.653 25.0424C112.193 31.9766 101.771 42.0275 94.4183 54.1999L86.3022 49.3509C102.295 22.8168 131.47 5.04657 164.819 5.00012Z'
+            fill='#00A14A' />
+        <path id='Borda_Velocimetro1' fill-rule='evenodd' clip-rule='evenodd'
+            d='M91.2937 132.479C87.6382 131.473 83.8578 130.766 79.9808 130.387C75.6794 119.823 73.3105 108.274 73.3105 96.1744C73.3105 79.0492 78.0561 63.0268 86.3101 49.3378L94.4255 54.1881C87.0135 66.4542 82.9793 80.4448 82.7283 94.7532C82.4986 107.847 85.4447 120.785 91.2937 132.479Z'
+            fill='#4A6DD4' />
+        <rect id='Qrd_Perc' x='139' y='152' width='51' height='14' rx='7' fill='#D9D9D9' />
+        <text id='TimePoint' fill='black' font-family='Segoe UI'
+            font-size='10' font-weight='600' text-anchor ='middle'>
+            <tspan x='139.541' y='178.641'>&#x23f0; 00:00:00</tspan>
+        </text>
+        <text id='Perc' fill='black' font-family='Segoe UI' font-size='10'
+            font-weight='600' text-anchor ='middle'>
+            <tspan x='154.228' y='162.641'>100%</tspan>
+        </text>
+        <text id='Titulo' fill='black' font-family='Segoe UI'
+            font-size='10' font-weight='600' text-anchor ='middle'>
+            <tspan x='138.312' y='146.641'>Background</tspan>
+        </text>
+    </g>
+</svg>

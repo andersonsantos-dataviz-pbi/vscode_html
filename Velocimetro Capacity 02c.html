@@ -1,0 +1,61 @@
+<svg width='150' height='150' viewBox='0 0 150 150' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <defs>
+        <style>
+            /* **** Ponteiro **** */
+            #Grupo_Giro {
+                transform: rotate(230deg);
+                transform-origin: center center;
+                transform-box: fill-box;
+                /* **** Animação **** */
+                animation: animaPonteiro 1s linear forwards;
+            }
+
+            @keyframes animaPonteiro {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(172.5deg);
+                    /* Rotação máxima: 230deg */
+                }
+            }
+        </style>
+    </defs>
+
+    <g id='Velocimetro 2'>
+        <ellipse id='Corpo_Velocimetro' cx='75.3105' cy='74.9688' rx='67.3105' ry='66.9688' fill='white' />
+        <g id='Grupo_Giro'>
+            <ellipse id='Giro' cx='75.3105' cy='74.9688' rx='67.3105' ry='66.9688' fill='white' />
+            <g id='Ponteiro'>
+                <path id='Polygon 1' d='M23.5524 99.571L78.0281 73.2909L80.5805 78.5818L23.5524 99.571Z'
+                    fill='#BCBCBC' />
+                <path id='Polygon 2' d='M23.5524 99.571L75.4756 68L78.028 73.2909L23.5524 99.571Z' fill='#D9D9D9' />
+                <circle id='Centro' cx='75.0138' cy='75.0138' r='7.5' transform='rotate(-115.754 75.0138 75.0138)'
+                    fill='#8E8E8E' />
+            </g>
+        </g>
+        <path id="Borda_Velocimetro3" fill-rule="evenodd" clip-rule="evenodd"
+            d="M249.642 130.415C245.636 130.824 241.735 131.582 237.969 132.658C244.081 120.512 247.048 107.032 246.59 93.4424C246.116 79.3909 241.996 65.7001 234.629 53.7003L242.922 48.6651C251.162 62.0875 255.77 77.4012 256.301 93.1185C256.732 105.909 254.45 118.613 249.642 130.415Z"
+            fill="#FF2E3F" />
+        <path id="Borda_Velocimetro2" fill-rule="evenodd" clip-rule="evenodd"
+            d="M201.173 12.5368C218.65 20.0798 233.329 32.8502 243.171 49.073L234.852 54.0648C226.053 39.5614 212.929 28.1444 197.305 21.4008L201.173 12.5368Z"
+            fill="#E1A900" />
+        <path id="Borda_Velocimetro1" fill-rule="evenodd" clip-rule="evenodd"
+            d="M164.837 5.0001C177.401 5.02217 189.892 7.61284 201.514 12.6846L197.61 21.5329C182.304 14.8535 165.312 12.9875 148.91 16.1851C132.508 19.3827 117.481 27.4911 105.844 39.423C94.2073 51.3549 86.5165 66.54 83.8031 82.9422C81.0897 99.3443 83.4834 116.179 90.6633 131.19L89.1207 131.92C86.1461 131.208 83.0946 130.692 79.9808 130.387C75.6794 119.823 73.3106 108.274 73.3106 96.1745C73.3106 45.8577 114.278 5.06077 164.837 5.0001Z"
+            fill="#00A14A" />
+        <text id='TimePoint' fill='black' xml:space='preserve' style='white-space: pre' font-family='Segoe UI'
+            font-size='8' font-weight='600' letter-spacing='0em'>
+            <tspan x='54.6328' y='135.812'>&#x23f0; 00:00:00</tspan>
+        </text>
+        <rect id='Qrd_Perc' x='49' y='90' width='51' height='14' rx='7' fill='#D9D9D9' />
+        <text id='Perc' fill='black' xml:space='preserve' style='white-space: pre' font-family='Segoe UI' font-size='10'
+            font-weight='600' letter-spacing='0em'>
+            <tspan x='63.2275' y='100.641'>100%</tspan>
+        </text>
+        <text id='Titulo' fill='black' xml:space='preserve' style='white-space: pre' font-family='Segoe UI'
+            font-size='8' font-weight='600' letter-spacing='0em'>
+            <tspan x='45.3125' y='112.812'>Time Point Start</tspan>
+        </text>
+    </g>
+</svg>

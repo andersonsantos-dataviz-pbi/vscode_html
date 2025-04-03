@@ -1,0 +1,123 @@
+<style>
+
+    :root{
+            --tamFonte: 3vw;
+
+            --corPrimeira: #59B7C8;
+            --corSegunda: #B194BB;
+            --corTerceira: #e4e4e4;
+            --corQuarta: #fff8;
+
+            --GradientePrincipal: linear-gradient(109deg, rgba(63, 18, 96, 0.3) 0%, rgba(94, 31, 141, 0.5) 47.92%, rgba(113, 40, 168, 0.5) 100%);
+
+            --GradienteHover: linear-gradient(270deg, rgba(73, 77, 104, 0.4) 0%, rgba(72, 72, 98, 0.1) 100%); 
+
+            --distancia: 150px;
+            --perspectiva: 800px
+    }
+
+  
+    div
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box
+    {
+        position: relative;
+
+        width: 100vw;
+        height: 100vh;
+
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        perspective: var(--perspectiva);
+        transform-style: preserve-3d;
+
+
+    }
+
+
+    .box .texto
+    {
+        position: absolute;
+
+        bottom: 0;
+
+        font-size: var(--tamFonte);
+        color: var(--corQuarta);
+    }
+
+    .box .texto span
+    {
+        color: var(--corPrimeira)
+    }
+
+    .box .carrosel
+    {
+        position: relative;
+
+
+        width: 20%;
+        height: 60%;
+
+        animation: animaFoto 5s linear infinite;
+        transform-style: preserve-3d;
+    }
+
+    .box .carrosel img
+    {
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+
+        transform: rotateY(calc(var(--v)*90deg)) translateZ(var(--distancia));
+
+    }
+
+   
+
+    /* ********************** ANIMATION **************************** */
+
+    @keyframes animaFoto
+    {
+        0%
+        {
+            transform: rotateY(0)
+        }
+
+        100%
+        {
+            transform: rotateY(360deg)
+        }
+    }
+
+    
+
+
+</style>
+
+
+<body>
+
+    <div class='box'>
+
+        <div class='carrosel'>
+            <img src='https://www.alterdata.com.br/images/contabil/logo_alterdata-03.svg' style='--v:1'>
+            <img src='https://www.alterdata.com.br/images/contabil/logo_alterdata-03.svg' style='--v:2'>
+            <img src='https://www.alterdata.com.br/images/contabil/logo_alterdata-03.svg' style='--v:3'>
+            <img src='https://www.alterdata.com.br/images/contabil/logo_alterdata-03.svg' style='--v:4'>
+        </div>
+
+    </div>
+
+
+
+</body>

@@ -1,0 +1,169 @@
+<style>
+
+    /* ⮝ ⮟ ⮞ */
+    
+    :root{
+    
+    --cantos_arredondados: 20px;
+    --familia_fonte: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+    
+    /************************ Formatações Frente *******************/
+    
+    --cor_card_frente: Linear-gradient(40deg,
+    #206CF5 0%,
+    #21ABFF 45%,
+    #2AD2E8 100%);
+    
+    
+    --tam_fonte_titulo_frente: 7vw;
+    --cor_fonte_titulo_frente: #fff;
+
+    --tam_fonte_valor_frente: 7vw;
+    --cor_fonte_valor_frente: #fff;
+    
+    /************************ Formatações Verso *******************/
+    
+    --cor_card_verso: #fff;
+    
+    --tam_fonte_titulo_verso: 7vw;
+    --cor_fonte_titulo_verso: #000;
+    
+    --tam_fonte_valor_verso: 7vw;
+    --cor_fonte_valor_verso: #000;
+    }
+    
+    
+    .conteiner
+    {
+    position: relative;
+    
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+    
+    /* border: 1px solid #000; */
+    }
+    
+    
+    
+    /* **************PARTE FRONTAL ******************* */
+    .conteiner .card_frente
+    {
+    position: absolute;
+    
+    
+    width: 100%;
+    height: 100%;
+    
+    background: var(--cor_card_frente);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: var(--cantos_arredondados);
+    
+    
+    transition: 1s;
+    bottom: 0;
+    
+    }
+    
+    .conteiner .card_frente .FatAtual_titulo
+    {
+    margin: 0;
+    
+    font-size: var(--tam_fonte_titulo_frente);
+    color: var(--cor_fonte_titulo_frente);
+
+    font-family: var(--familia_fonte); 
+    }
+    
+    
+    .conteiner .card_frente .FatAtual_valor
+    {
+    margin: 0;
+    
+    font-size: var(--tam_fonte_titulo_frente);
+    color: var(--cor_fonte_titulo_frente);
+
+    font-family: var(--familia_fonte);
+    }
+    
+    /* **************PARTE VERSO ******************* */
+    
+    .conteiner .card_verso
+    {
+    position: absolute;
+    
+    width: 100%;
+    height: 50%;
+    
+    background: var(--cor_card_verso);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: var(--cantos_arredondados);
+    
+    }
+    
+    
+    .conteiner .card_verso .FatAnterior_titulo
+    { margin: 0;
+    
+    font-size: var(--tam_fonte_titulo_verso);
+    color: var(--cor_fonte_titulo_verso);
+
+    font-family: var(--familia_fonte); 
+    }
+    
+    
+    .conteiner .card_verso .FatAnterior_valor
+    {
+    margin: 0;
+    
+    font-size: var(--tam_fonte_titulo_verso);
+    color: var(--cor_fonte_titulo_verso);
+
+    font-family: var(--familia_fonte);
+    }
+    
+    
+    
+    /* **************Animação ******************* */
+    
+    .conteiner:hover .card_frente
+    {
+    height: 50%;
+    
+    bottom: 0;
+    }
+    
+    
+    
+    </style>
+    
+    
+    
+    <div class='conteiner'>
+    
+    <div class='card_verso'>
+    <h2 class='FatAnterior_titulo'> Fat. Anterior </h2>
+    <h2 class='FatAnterior_valor'> R$ 3.500.000 </h2>
+    
+    </div>
+    
+    <div class='card_frente'>
+    <h2 class='FatAtual_titulo'> Fat. Atual</h2>
+    <h2 class='FatAtual_valor'> R$ 5.0000,00 ⮝ 10%</h2>
+    
+    </div>
+    
+    
+    
+    </div>

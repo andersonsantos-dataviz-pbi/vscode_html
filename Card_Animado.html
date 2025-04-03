@@ -1,0 +1,70 @@
+<style>
+    .contorno {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        border: 5px solid #ffffff;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .bg {
+        position: absolute;
+        inset: 10px;
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .Titulo::before {
+        position: absolute;
+        top: 8%;
+        left: 50%;
+        font-family: 'Segoe UI Semibold';
+        font-size: 24px;
+        content: 'Título';
+        color: #FF2E3F;
+        text-align: center;
+    }
+
+    .Valor::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-family: 'Segoe UI';
+        font-size: 18px;
+        content: 'Valor';
+        color: #FF2E3F;
+    }
+
+    .borda {
+        position: absolute;
+        width: 30%;
+        height: 200%;
+        background: #FF2E3F;
+        animation: anima_borda 2.5s linear infinite;
+    }
+
+    @keyframes anima_borda {
+        from {
+            transform: rotate(0);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<div class='contorno'>
+    <div class='borda'>
+    </div>
+    <div class='bg'>
+        <div class='Titulo'>
+            <div class='Valor'>
+            </div>
+        </div>
+    </div>
+
+</div>

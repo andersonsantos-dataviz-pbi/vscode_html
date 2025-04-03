@@ -1,0 +1,58 @@
+    <svg viewBox='0 0 316 70' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <defs>
+            <style>
+                #Marcador
+                {
+                    transform: translateX(269px);
+                    animation: animaMarcador 1s linear forwards;
+                }
+                #Ret_Frente
+                {
+                    width: 268px;
+                    animation: animaProgresso 1s linear forwards;
+                }
+            
+            /* ********************* Animação ******************* */
+            @keyframes animaMarcador
+            {
+                from
+                {
+                    transform: translateX(0px);
+                }
+            
+                to
+                {
+                    transform: translateX(180px);
+                }
+            }
+            
+            @keyframes animaProgresso
+            {
+                from
+                {
+                    width: 0px;
+                }
+            
+                to
+                {
+                    width: 180px;
+                }
+            }
+            </style>
+        </defs>
+        <g id='Barra_de_Progresso'>
+            <g id='Ret_Fundo' filter='url(#filter0_i_1_2)'>
+                <rect x='22' y='47' width='273' height='23' rx='12' fill='#0065A1' />
+            </g>
+            <rect id='Ret_Frente' x='24' y='49' width='268' height='19' rx='10' fill='#01B051' />
+            <g id='Marcador' fill='#151716'>
+                <path id='Seta' d='M24 47L15.3397 32H32.6603L24 47Z'/>
+                <text id='Perc_1' fill='151716' font-family='Segoe UI'
+                    font-size='14' font-weight='600' text-archor='midlle'>
+                    <tspan x='8.01855' y='27.2969'>
+                        100%
+                    </tspan>
+                </text>
+            </g>
+        </g>
+    </svg>    

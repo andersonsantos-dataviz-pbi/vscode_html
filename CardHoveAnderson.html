@@ -1,0 +1,127 @@
+
+<style>
+
+/* ⮝ ⮟ ⮞ */
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  min-height: 100vh;
+}
+  .container {
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 35px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+    .card {
+      position: relative;
+      width: 150px;
+      height: 100px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 15px;
+    }
+      .face {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+        .face1 {
+          box-sizing: border-box;
+          padding: 0px;
+        }
+
+          h2 {
+            margin: 0;
+            padding: 0;
+          }
+
+          .FatAnterior {
+            background-color: #fff;
+            font-size: 12px;
+            line-height: 0;
+            -webkit-text-fill-color: #000;
+            justify-content: center;
+            align-items: center;
+          }
+
+
+        .face2 {
+          box-sizing: border-box;
+          padding: 0px;
+          transition: 0.5s;
+        }
+
+          h2 {
+            font-size: 10em;
+            color: #fff;
+            transition: 0.5s;
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+
+          }
+
+          .FatAtual {
+           font-size: 12px;
+            line-height: 0;
+            -webkit-text-fill-color: #fff;
+            justify-content: center;
+            align-items: center;
+          }
+    .card:hover .face.face2 {
+      height: 40px;
+    }
+
+      h2 {
+        font-size: 14px;
+      }
+
+    .card:nth-child(1) .face.face2 {
+      background-image: linear-gradient(
+        40deg,
+        #206CF5 0%,
+        #21ABFF 45%,
+        #2AD2E8 100%
+      );
+      border-radius: 15px;
+    }
+
+</style>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+          <div class="face face1">
+            <div class="content">
+              <span class="stars"></span>
+              <h2 class="FatAnterior">Fat. Anterior</h2>
+              <p class="FatAnterior"><b>R$ 3.500.000,00</b></p>
+            </div>
+          </div>
+          <div class="face face2">
+            <div class="content">
+              <span class="stars"></span>
+                <h2 class="FatAtual">Fat. Atual</h2>
+                <p class="FatAtual"><b>R$ 5.000.000,00 ⮝ 10%</b></p>
+            </div>
+          </div>
+        </div>
+      
+</body>

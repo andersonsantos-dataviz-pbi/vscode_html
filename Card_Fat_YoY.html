@@ -1,0 +1,71 @@
+<style>
+
+    :root
+    {
+        --corTexto: #554294;
+
+        --corCondicional: #00023D;
+
+
+        --tamFonteTexto: 14px;
+        --tamFonteYOY: 14px;
+
+        /* ⮝ ⮟ ⮞ */
+    }
+
+    .conteiner
+    {
+        position: relative;
+
+        width: 250px;
+        height: 150px;
+
+        /*border: 1px solid #f00;*/
+
+        display: flex;
+        align-items: center;
+    }
+
+    .conteiner .yoy
+    {
+        font-size: var(--tamFonteTexto);
+        color: var(--corTexto);
+    }
+
+    .conteiner .yoy span
+    {
+        color: var(--corCondicional);
+        font-size: var(--tamFonteYOY);
+
+        animation: animaTexto 1s infinite both;
+    }
+
+    /* ******************* ANIMAÇÃO *********************** */
+
+    @keyframes animaTexto
+    {
+        0%,
+        50%,
+        100% 
+        {
+            opacity: 1;
+        }
+
+        25%,
+        75% 
+        {
+            opacity: 0;
+        }
+    }
+    
+</style>
+
+<body>
+
+    <div class='conteiner'>
+        <h1 class='yoy'> 
+            Vs Ano anterior <span> ⮝ 5,65%   </span> 
+        </h1>
+    </div>
+
+</body>

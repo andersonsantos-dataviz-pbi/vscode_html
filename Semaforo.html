@@ -1,0 +1,62 @@
+<svg width='100' height='288' viewBox='0 0 100 288' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <defs>
+        <style>
+            #Luz
+            {
+                fill: #ECB718;
+                /* Cores: Verde #37714A, Amarelo #ECB718 Vermelho #FB4756 */
+                cy: 170.574;
+                /* Posições: verde cy='60.5739', amarelo cy='115.574', vermelho cy='170.574' */
+
+                animation: piscar 1s linear infinite;
+            }
+/* **** Criando animação de piscar **** */
+            @keyframes piscar{
+                0%,
+                50%,
+                100% {
+                    opacity: 1;
+                }
+                25%,
+                75% {
+                    opacity: 0;
+                }
+            }
+        </style>
+    </defs>
+    <g id='Semaforo'>
+        <g id='Estrutura' fill='#D9D9D9'>
+            <path id='Base Semaforo'
+                d='M42 220H58V274C58 277.314 55.3137 280 52 280H48C44.6863 280 42 277.314 42 274V220Z'/>
+            <rect id='Extensor_Semaforo' x='44' y='205' width='12' height='15'/>
+            <rect id='Semaforo_2' x='23' y='27' width='55' height='178' rx='8'/>
+        </g>
+
+        <g id='Container_Farol' fill='white'>
+            <ellipse id='Farol Vermelho' cx='49.5739' cy='170.574' rx='17.5739' ry='17.5739'/>
+            <ellipse id='Farol Amarelo' cx='49.5739' cy='115.574' rx='17.5739' ry='17.5739'/>
+            <ellipse id='Farol Verde' cx='49.5739' cy='60.5739' rx='17.5739' ry='17.5739'/>
+        </g>
+
+        <g id='Conteiner_Meia_Lua' fill='#D9D9D9'>
+            <path id='Lua_Farol_Vermelho' fill-rule='evenodd' clip-rule='evenodd'
+                d='M51.705 155.156C44.1889 156.226 38.4099 162.688 38.4099 170.5C38.4099 178.312 44.1889 184.774 51.705 185.844C50.9847 185.947 50.2486 186 49.5 186C40.9396 186 34 179.06 34 170.5C34 161.94 40.9396 155 49.5 155C50.2486 155 50.9847 155.053 51.705 155.156Z'
+                />
+            <path id='Lua_Farol_Amarelo' fill-rule='evenodd' clip-rule='evenodd'
+                d='M51.705 100.156C44.1889 101.226 38.4099 107.688 38.4099 115.5C38.4099 123.312 44.1889 129.774 51.705 130.844C50.9847 130.947 50.2486 131 49.5 131C40.9396 131 34 124.06 34 115.5C34 106.94 40.9396 100 49.5 100C50.2486 100 50.9847 100.053 51.705 100.156Z'
+                />
+            <path id='Lua_Farol_Verde' fill-rule='evenodd' clip-rule='evenodd'
+                d='M51.705 45.1556C44.1889 46.2261 38.4099 52.6882 38.4099 60.5C38.4099 68.3118 44.1889 74.7739 51.705 75.8444C50.9847 75.9469 50.2486 76 49.5 76C40.9396 76 34 69.0604 34 60.5C34 51.9396 40.9396 45 49.5 45C50.2486 45 50.9847 45.0531 51.705 45.1556Z'
+                />
+        </g>
+
+        <ellipse id='Luz' cx='49.5739' cy='60.5739' rx='17.5739' ry='17.5739' fill='#FB4756' />
+
+        <text id='Rot_Perc' fill='black' font-family='Segoe UI'
+            font-size='14' font-weight='600' text-anchor="midlle">
+            <tspan x='45' y='20.2969'>
+                0%
+            </tspan>
+        </text>
+    </g>
+</svg>

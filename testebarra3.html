@@ -1,0 +1,422 @@
+<svg viewBox='0 0 336 501' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+    <defs>
+        <style>
+            :root {
+                /* **** Definição de Cores **** */
+                --cor_giro: #01B051;
+                --cor_seta_acima: #01B051;
+                --cor_seta_abaixo: #FF2E3F;
+
+                /* **** Definição de Fonte **** */
+                --fonte: Segoe UI;
+                --progresso: 80px;  /* Valor inicial da altura da barra (80px) */
+            }
+
+            #Giro_Imagem {
+                transform: rotate(0deg);
+                transform-origin: right center;
+                transform-box: fill-box;
+                /* **** Animação **** */
+                animation: giroImagem 1.5s infinite linear;
+            }
+
+            /* ********************* Animação Giro Imagem ******************* */
+            @keyframes giroImagem {
+                from {
+                    transform: Rotate(0deg);
+                }
+
+                to {
+                    transform: Rotate(360deg);
+                }
+            }
+
+            #Marcador {
+                transform: translateX(0px);
+                animation: animaMarcador 1s linear forwards;
+            }
+
+            /* ********************* Animação Marcador ******************* */
+            @keyframes animaMarcador {
+                from {
+                    transform: translateX(0px);
+                }
+
+                to {
+                    transform: translateX(298px);
+                }
+            }
+            /**** Animação gráfico de colunas ****/
+    @keyframes grow {
+      from {
+        height: 0;
+        y: 478;
+      }
+    }
+
+    rect[id^="Barra"] {
+      rx: 10;
+      fill: #0065A1;
+      animation: grow 2s ease-out forwards;
+    }
+
+    #Barra_Jan { animation-delay: 0s; height: 80px; y: 204.217; }
+
+        </style>
+    </defs>
+
+    <g id='Card KPI 2'>
+        <rect width='336' height='501' rx='10' fill='white' />
+        <text id='Eixo_Dez' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='304.217' y='490.969'>Dez</tspan>
+        </text>
+        <rect id='Barra_Dez' x='303' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Dez' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='304.217' y='392.969'>Dez</tspan>
+        </text>
+        <text id='Eixo_Nov' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='276.262' y='490.969'>Nov</tspan>
+        </text>
+        <rect id='Barra_Nov' x='276' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Nov' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='276.262' y='392.969'>Nov</tspan>
+        </text>
+        <text id='Eixo_Out' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='251.293' y='490.969'>Out</tspan>
+        </text>
+        <rect id='Barra_Out' x='250' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Out' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='251.293' y='392.969'>Out</tspan>
+        </text>
+        <text id='Eixo_Set' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='225.375' y='490.969'>Set</tspan>
+        </text>
+        <rect id='Barra_Set' x='223' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Set' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='225.375' y='392.969'>Set</tspan>
+        </text>
+        <text id='Eixo_Ago' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='196.268' y='490.969'>Ago</tspan>
+        </text>
+        <rect id='Barra_Ago' x='196' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Ago' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='196.268' y='392.969'>Ago</tspan>
+        </text>
+        <text id='Eixo_Jul' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='174.047' y='490.969'>Jul</tspan>
+        </text>
+        <rect id='Barra_Jul' x='170' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Jul' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='174.047' y='392.969'>Jul</tspan>
+        </text>
+        <text id='Eixo_Jun' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='145.113' y='490.969'>Jun</tspan>
+        </text>
+        <rect id='Barra_Jun' x='143' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Jun' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='145.113' y='392.969'>Jun</tspan>
+        </text>
+        <text id='Eixo_Mai' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='117.246' y='490.969'>Mai</tspan>
+        </text>
+        <rect id='Barra_Mai' x='116' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Mai' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='117.246' y='392.969'>Mai</tspan>
+        </text>
+        <text id='Eixo_Abr' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='91.1328' y='490.969'>Abr</tspan>
+        </text>
+        <rect id='Barra_Abr' x='90' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Abr' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='91.1328' y='392.969'>Abr</tspan>
+        </text>
+        <text id='Eixo_Mar' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='63.0957' y='490.969'>Mar</tspan>
+        </text>
+        <rect id='Barra_Mar' x='63' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Mar' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='63.0957' y='392.969'>Mar</tspan>
+        </text>
+        <text id='Eixo_Fev' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='38.248' y='490.969'>Fev</tspan>
+        </text>
+        <rect id='Barra_Fev' x='37' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Fev' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='38.248' y='392.969'>Fev</tspan>
+        </text>
+        <text id='Eixo_Jan' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='12.0527' y='490.969'>Jan</tspan>
+        </text>
+        <rect id="Barra_Jan" x='10' y='398' width='21.6667' height='80' rx='10' fill='#0065A1' />
+        <text id='Rotulo_Jan' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='12.0527' y='392.969'>Jan</tspan>
+        </text>
+        <g id='Regua'>
+            <rect id='Linha_Regua' x='20' y='293' width='2' height='64' fill='#F1F1F1' />
+            <rect id='Linha_Regua_2' x='23.775' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_3' x='27.55' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_4' x='31.325' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_5' x='35.1' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_6' x='38.875' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_7' x='42.65' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_8' x='46.425' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_9' x='50.2' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_10' x='53.975' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_11' x='57.75' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_12' x='61.525' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_13' x='65.3' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_14' x='69.075' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_15' x='72.85' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_16' x='76.625' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_17' x='80.4' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_18' x='84.175' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_19' x='87.95' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_20' x='91.725' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_21' x='95.5' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_22' x='99.275' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_23' x='103.05' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_24' x='106.825' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_25' x='110.6' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_26' x='114.375' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_27' x='118.15' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_28' x='121.925' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_29' x='125.7' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_30' x='129.475' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_31' x='133.25' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_32' x='137.025' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_33' x='140.8' y='293' width='1.775' height='64' fill='#F1F1F1' />
+            <rect id='Linha_Regua_34' x='144.575' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_35' x='148.35' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_36' x='152.125' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_37' x='155.9' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_38' x='159.675' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_39' x='163.45' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_40' x='167.225' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_41' x='171' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_42' x='174.775' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_43' x='178.55' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_44' x='182.325' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_45' x='186.1' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_46' x='189.875' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_47' x='193.65' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_48' x='197.425' y='293' width='1.775' height='64' fill='#F1F1F1' />
+            <rect id='Linha_Regua_49' x='201.2' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_50' x='204.975' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_51' x='208.75' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_52' x='212.525' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_53' x='216.3' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_54' x='220.075' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_55' x='223.85' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_56' x='227.625' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_57' x='231.4' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_58' x='235.175' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_59' x='238.95' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_60' x='242.725' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_61' x='246.5' y='293' width='1.775' height='64' fill='#F1F1F1' />
+            <rect id='Linha_Regua_62' x='250.275' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_63' x='254.05' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_64' x='257.825' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_65' x='261.6' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_66' x='265.375' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_67' x='269.15' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_68' x='272.925' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_69' x='276.7' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_70' x='280.475' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_71' x='284.25' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_72' x='288.025' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_73' x='291.8' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_74' x='295.575' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_75' x='299.35' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_76' x='303.125' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_77' x='306.9' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_78' x='310.675' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_79' x='314.45' y='302' width='1.775' height='9' fill='#F1F1F1' />
+            <rect id='Linha_Regua_80' x='318' y='293' width='1.775' height='64' fill='#F1F1F1' />
+        </g>
+        <rect id='Barra_Fundo' x='20' y='313' width='300' height='24' fill='#F1F1F1' />
+        <rect id='Barra_Alto' x='248' y='313' width='72' height='24' fill='#01B051' />
+        <rect id='Barra_Medio' x='133' y='313' width='113.5' height='24' fill='#0065A1' />
+        <g id='Marcador'>
+            <text id='Perc_1' fill='black' font-family='var(--fonte)' font-size='20' font-weight='600'
+                text-anchor='midlle'>
+                <tspan x='6.03516' y='367.781'>0%</tspan>
+            </text>
+            <g id='Icone' clip-path='url(#clip0_444_2)'>
+                <path id='Vector'
+                    d='M14.75 348.083H25.25C25.3563 348.083 25.4605 348.054 25.5514 347.999C25.6423 347.943 25.7164 347.864 25.7658 347.77C25.8152 347.676 25.8379 347.57 25.8316 347.464C25.8253 347.358 25.7902 347.256 25.7301 347.168L20.4801 339.585C20.2625 339.27 19.7387 339.27 19.5205 339.585L14.2705 347.168C14.2097 347.256 14.1741 347.358 14.1675 347.464C14.1608 347.571 14.1834 347.677 14.2329 347.771C14.2823 347.865 14.3566 347.944 14.4478 347.999C14.539 348.054 14.6435 348.084 14.75 348.083Z'
+                    fill='#151716' />
+                <path id='Vector_2'
+                    d='M13.541 352C7.39448 348.536 5.77622 345.257 6.70142 340.779C7.38445 337.472 9.62097 334.782 9.83542 331.481C10.7908 333.22 11.19 334.473 11.2967 336.29C14.3353 332.567 16.3433 327.414 16.4622 322C16.4622 322 24.3766 326.65 24.8959 333.675C25.5772 332.227 25.9202 329.927 25.2389 328.437C27.2828 329.927 39.2462 343.158 23.6184 352C26.5566 346.279 24.3764 338.56 19.2749 334.995C19.6156 336.528 19.0183 342.245 16.7614 344.757C17.3867 340.56 16.1664 338.784 16.1664 338.784C16.1664 338.784 15.7475 341.136 14.1224 343.511C12.6384 345.68 11.6102 347.982 13.541 352Z'
+                    fill='#F24E1E' />
+            </g>
+        </g>
+        <line id='Limite' x1='247.5' y1='313' x2='247.5' y2='337' stroke='black' stroke-width='3' />
+        <text id='Max' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600' text-anchor='midlle'>
+            <tspan x='307.311' y='289.969'>Max</tspan>
+        </text>
+        <text id='Atingimento_Total' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='233.373' y='289.969'>100%</tspan>
+        </text>
+        <rect id='Leg_Baixo' x='13' y='258' width='10' height='10' fill='#F1F1F1' />
+        <text id='Baixo_2' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='28.1523' y='267.969'>Baixo</tspan>
+        </text>
+        <rect id='Leg_Medio' x='69' y='258' width='10' height='10' fill='#0065A1' />
+        <text id='M&#195;&#169;dio_2' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='82.4922' y='267.969'>M&#xe9;dio</tspan>
+        </text>
+        <rect id='Leg_Alto' x='126' y='258' width='10' height='10' fill='#01B051' />
+        <text id='Alto' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600' text-anchor='midlle'>
+            <tspan x='141.18' y='267.969'>Alto</tspan>
+        </text>
+        <g id='Fundo_Giro_Imagem' filter='url(#filter0_d_444_2)'>
+            <circle cx='229' cy='163' r='86' fill='white' />
+        </g>
+        <path id='Giro_Imagem'
+            d='M229 76.9997C217.707 76.9997 206.523 79.2241 196.089 83.546C185.655 87.8679 176.175 94.2026 168.189 102.188C160.203 110.174 153.869 119.655 149.547 130.089C145.225 140.523 143 151.706 143 163C143 174.293 145.225 185.476 149.547 195.91C153.869 206.344 160.203 215.825 168.189 223.811C176.175 231.797 185.655 238.131 196.089 242.453C206.523 246.775 217.707 249 229 249L229 163V76.9997Z'
+            fill='url(#paint0_linear_444_2)' />
+        <g id='Fundo_Imagem' filter='url(#filter1_d_444_2)'>
+            <circle cx='228.5' cy='163.5' r='74.5' fill='#D9D9D9' />
+        </g>
+        <g id='Imagem' filter='url(#filter2_i_444_2)'>
+            <circle cx='228.5' cy='163.5' r='74.5' fill='url(#pattern0_444_2)' />
+        </g>
+        <text id='Perc_Fat_Mes' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='13' y='205.969'>%MTD - 100% </tspan>
+        </text>
+        <text id='Perc_Fat_Ano' fill='black' font-family='var(--fonte)' font-size='12' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='13' y='184.969'>%YTD - 100% </tspan>
+        </text>
+        <text id='Valor_Faturamento' fill='black' font-family='var(--fonte)' font-size='16' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='36.4766' y='163.125'>96.000,00</tspan>
+        </text>
+        <text id='Faturamento' fill='black' font-family='var(--fonte)' font-size='18' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='13.2803' y='141.453'>Faturamento:</tspan>
+        </text>
+        <text id='Valor_Meta' fill='black' font-family='var(--fonte)' font-size='16' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='36.4766' y='118.125'>96.000,00</tspan>
+        </text>
+        <text id='Meta:' fill='black' font-family='var(--fonte)' font-size='18' font-weight='600' text-anchor='midlle'>
+            <tspan x='13.2705' y='96.4531'>Meta:</tspan>
+        </text>
+        <line id='Linha' x1='10' y1='69.5' x2='325' y2='69.5' stroke='#F1F1F1' stroke-width='3' />
+        <text id='Perc_LM' fill='black' font-family='var(--fonte)' font-size='14' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='292.019' y='42.2969'>100%</tspan>
+        </text>
+        <path id='Abaixo_LM' d='M281 45L276.67 37.5H285.33L281 45Z' fill='var(--cor_seta_abaixo)' />
+        <path id='Acima_LM' d='M281 28L285.33 35.5H276.67L281 28Z' fill='var(--cor_seta_acima)' />
+        <text id='Perc_LY' fill='black' font-family='var(--fonte)' font-size='14' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='292.019' y='21.2969'>100%</tspan>
+        </text>
+        <path id='Abaixo_LY' d='M281 24L276.67 16.5H285.33L281 24Z' fill='var(--cor_seta_abaixo)' />
+        <path id='Acima_LY' d='M281 7L285.33 14.5H276.67L281 7Z' fill='var(--cor_seta_acima)' />
+        <text id='Valor_Mes_Anterior' fill='black' font-family='var(--fonte)' font-size='14' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='208' y='42.2969'>96.000,00</tspan>
+        </text>
+        <text id='Mes_Anterior' fill='black' font-family='var(--fonte)' font-size='14' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='173.413' y='42.2969'>L.M</tspan>
+        </text>
+        <text id='Valor_Ano_Anterior' fill='black' font-family='var(--fonte)' font-size='14' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='208' y='21.2969'>96.000,00</tspan>
+        </text>
+        <text id='Ano_Anterior' fill='black' font-family='var(--fonte)' font-size='14' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='175.347' y='21.2969'>L.Y</tspan>
+        </text>
+        <text id='Valor_Venda' fill='black' font-family='var(--fonte)' font-size='16' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='56.0234' y='44.125'>58.000,00</tspan>
+        </text>
+        <text id='Nome_Vendedor' fill='black' font-family='var(--fonte)' font-size='18' font-weight='600'
+            text-anchor='midlle'>
+            <tspan x='23.4316' y='25.4531'>Vendedor</tspan>
+        </text>
+    </g>
+    <defs>
+        <filter id='filter0_d_444_2' x='139' y='77' width='180' height='180' filterUnits='userSpaceOnUse'
+            color-interpolation-filters='sRGB'>
+            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
+                result='hardAlpha' />
+            <feOffset dy='4' />
+            <feGaussianBlur stdDeviation='2' />
+            <feComposite in2='hardAlpha' operator='out' />
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0' />
+            <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_444_2' />
+            <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_444_2' result='shape' />
+        </filter>
+        <filter id='filter1_d_444_2' x='150' y='89' width='157' height='157' filterUnits='userSpaceOnUse'
+            color-interpolation-filters='sRGB'>
+            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
+                result='hardAlpha' />
+            <feOffset dy='4' />
+            <feGaussianBlur stdDeviation='2' />
+            <feComposite in2='hardAlpha' operator='out' />
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0' />
+            <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_444_2' />
+            <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_444_2' result='shape' />
+        </filter>
+        <filter id='filter2_i_444_2' x='154' y='89' width='149' height='153' filterUnits='userSpaceOnUse'
+            color-interpolation-filters='sRGB'>
+            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
+                result='hardAlpha' />
+            <feOffset dy='4' />
+            <feGaussianBlur stdDeviation='2' />
+            <feComposite in2='hardAlpha' operator='arithmetic' k2='-1' k3='1' />
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0' />
+            <feBlend mode='normal' in2='shape' result='effect1_innerShadow_444_2' />
+        </filter>
+        <pattern id='pattern0_444_2' patternContentUnits='objectBoundingBox' width='1' height='1'>
+            <use xlink:href='#image0_444_2' transform='translate(-0.212766) scale(0.00531915)' />
+        </pattern>
+        <linearGradient id='paint0_linear_444_2' x1='229' y1='76.9997' x2='229' y2='249' gradientUnits='userSpaceOnUse'>
+            <stop stop-color='var(--cor_giro)' />
+            <stop offset='1' stop-color='white' />
+        </linearGradient>
+        <clipPath id='clip0_444_2'>
+            <rect width='30' height='30' fill='white' transform='translate(4 322)' />
+        </clipPath>
+        <image id='image0_444_2' data-name='Vendedora.png' width='268' height='188' preserveAspectRatio='none'
+            xlink:href='data:image/jpeg;base64,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' />
+    </defs>
+</svg>
